@@ -1,5 +1,5 @@
-# MinecraftSkinDownloader（Minecraft正版玩家皮肤下载器）
-用于下载Minecraft正版账户皮肤，将会把<玩家名>.png的皮肤文件下载之软件相同目录
+# MinecraftApiToolbox（Minecraft Api 工具箱）
+用于获取MOJANG Api中的数据
 
 获取JSON途径：
 api.mojang.com
