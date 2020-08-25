@@ -115,26 +115,29 @@ def main_zh_cn():
         uuid = input("国际版UUID>>>")
         print("正在从MOJANG官网获取JSON数据")
         hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/user/profiles/' + uuid + '/names').read())#按照MOJANG api格式请求JSON
-        cash = int(len(hjson) - 1)
-        print('')
-        print('')
-        print("该UUID一共拥有过 " + str(int(cash + 1)) + " 个名称")
-        print('')
-        print("当前名称：" + hjson[cash]['name'])
-        print('')
-
-        if(cash > 0):
-            print("更多：")
-            print('')
-            print("原始名称：" + hjson[0]['name'])
-            print('')
-            for i in range(1,int(cash + 1),1):
-                print("第 " + str(i) + " 个ID：" + hjson[i]['name'])
-                name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[1]['changedToAt'])/1000))
-                print("更改时间：" + name_changed_time)
-                print('')
+        if('error' in hjson):
+            print("UUID不存在或出现错误")
         else:
-            print("ID：" + hjson[0]['name'])
+            cash = int(len(hjson) - 1)
+            print('')
+            print('')
+            print("该UUID一共拥有过 " + str(int(cash + 1)) + " 个名称")
+            print('')
+            print("当前名称：" + hjson[cash]['name'])
+            print('')
+
+            if(cash > 0):
+                print("更多：")
+                print('')
+                print("原始名称：" + hjson[0]['name'])
+                print('')
+                for i in range(1,int(cash + 1),1):
+                    print("第 " + str(i) + " 个ID：" + hjson[i]['name'])
+                    name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[1]['changedToAt'])/1000))
+                    print("更改时间：" + name_changed_time)
+                    print('')
+            else:
+                print("ID：" + hjson[0]['name'])
         main_zh_cn()
 
 #获取软件信息模块
@@ -142,7 +145,7 @@ def main_zh_cn():
         Show_SoftwareInfo_zh_cn()
         main_zh_cn()
 
-#切换至中文显示
+#切换至英文显示
     elif(do == "en_us"):
         language_setting = {"language":"en_us"}
         language_file = json.dumps(language_setting)
@@ -236,7 +239,7 @@ def main_en_us():
 
 #获取软件信息模块
     elif(do == "info"):
-        Show_SoftwareInfo()
+        Show_SoftwareInfo_en_us()
         main_en_us()
 
 #切换至中文显示
@@ -248,10 +251,10 @@ def main_en_us():
         print("语言已切换至中文")
         main_zh_cn()
         
-
     else:
         print("unknow command type 'help' for help")
         main_en_us()
+
 ####################################---------Main------------############################################
 
 with open("./config/language.json",'r') as language_load:
