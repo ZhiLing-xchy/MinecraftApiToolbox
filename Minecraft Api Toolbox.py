@@ -6,13 +6,13 @@ import time
 
 
 SoftwareData_en_us = {
-    "version":"2.4(beta 20-10-a)",
+    "version":"2.4 (beta 20-10-a)",
     "name":"Minecraft Api Toolbox",
     "more_info":"This software can only access to 'minecraft.net' users' account data",
     "note":"Please connect to the Internet, otherwise an error will appear"
     }
 SoftwareData_zh_cn = {
-    "version":"2.4(beta 20-10-a)",
+    "version":"2.4 (beta 20-10-a)",
     "name":"Minecraft Api工具箱",
     "more_info":"本软件只能访问国际正版用户信息",
     "note":"请连接至互联网，否则会出现报错"
