@@ -29,19 +29,61 @@ def Show_SoftwareInfo():
     print("BiliBili @" + about_creater['BiliBili_ID'])
     print("Github @" + about_creater['Github_ID'])
     print("")
+intergrade_language_file_zh_cn = {
+        "help": [
+            "输入help获取帮助信息",
+            "输入‘dlskin来下载皮肤",
+            "输入'exit'来退出",
+            "输入'getuuid'来获取UUID",
+            "输入'getid'来获取用户所有使用过的ID",
+            "输入'info'来获取软件信息",
+            "输入'en_us'来切换至英文显示"
+        ],
+        "version": "版本：",
+        "creaters": "制作者：",
+        "Warning": "警告: ",
+        "ID": "国际版ID",
+        "getskin_error": "ID不存在或发生异常",
+        "getting_json": "正在从MOJANG网站获取用户JSON",
+        "parsing_json": "正在分析JSON",
+        "getting_skin_json": "正在从MOJANG获取带有皮肤信息的JSON",
+        "ecoding_base64": "正在BASE64解码",
+        "geted_skin_url": "成功获取皮肤连接：",
+        "downloading_skin_1": "正在下载皮肤文件(文件名:",
+        "downloading_skin_2": ".png)",
+        "skin_download_finsh": "完成！耗时：",
+        "millisecond": " 毫秒",
+        "exiting": "退出中...",
+        "ID_to_UUID_error": "ID不存在或发生异常",
+        "UUID_is": " 的UUID是:",
+        "getid_command_help": "如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)",
+        "request_player_UUID": "国际版UUID",
+        "UUID_to_ID_Fail": "UUID不存在或出现错误",
+        "UUID_to_ID_Finsh_1": "该UUID一共拥有过 ",
+        "UUID_to_ID_Finsh_2": " 个名称",
+        "nick_now": "当前名称：",
+        "more": "更多：",
+        "reg_name": "原始名称：",
+        "ID_No._1": "第 ",
+        "ID_No._2": " 个ID：",
+        "Change_Time": "更改时间：",
+        "lang_switch_to_english": "Language had switch to English",
+        "lang_switch_to_chinese": "语言已切换至中文",
+        "unknow_command": "未知指令，输入'help'以获取帮助"
+    }
 
 ###############################配置文件检查###########################################
-if not(os.path.exists("./config/language.json")):
-    with open("./config/language.json","w") as creat_language_config:
-        language_setting = {"language":"zh_cn"}
-        language_file = json.dumps(language_setting)
-        json.dump(language_file,creat_language_config)
-    print("Language setting not found.Language had ben set to default.")
-    print("没有找到语言设置，语言已被设置为默认。")
+if not(os.path.exists("./config/setting.json")):
+    with open("./config/setting.json","w") as create_setting_config:
+        setting = {"language":"zh_cn"}
+        setting_file = json.dumps(language_setting)
+        json.dump(setting_file,create_setting_config)
+    print("Setting not found.Run as default.")
+    print("没有找到设置，以默认运行。")
 
 ###############################语言文件读取###########################################
-with open("./config/language.json",'r') as language_load:
-    language_setting = json.loads(''.join(str(''.join(json.load(language_load)))))
+with open("./config/setting.json",'r') as setting_load:
+    language_setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
 language = language_setting['language']
 
 if(language == "zh_cn"):
@@ -51,9 +93,12 @@ if(language == "zh_cn"):
 		"more_info":"本软件只能访问国际正版用户信息",
 		"note":"请连接至互联网，否则会出现报错"
         }
-    with open("./config/languages/zh_cn.json",'r', encoding="utf-8") as language_file_load:
-        language_display = json.load(language_file_load)
-
+    try:
+        with open("./config/languages/zh_cn.json",'r', encoding="utf-8") as language_file_load:
+            language_display = json.load(language_file_load)
+    except:
+        language_display = intergrade_language_file_zh_cn
+        print("The set language file was not found, using the integrated language file."+'\n'+"未找到所设定的语言文件，正在使用集成语言文件。")
 elif(language == "en_us"):
     for i in range(5):
         print("")
@@ -174,10 +219,10 @@ while True:
 
     #切换至英文显示
     elif(do == "en_us"):
-        language_setting = {"language":"en_us"}
-        language_file = json.dumps(language_setting)
-        with open("./config/language.json","w") as f:
-            json.dump(language_file,f)
+        setting = {"language":"en_us"}
+        setting_file = json.dumps(setting)
+        with open("./config/setting.json","w") as f:
+            json.dump(setting_file,f)
 
         SoftwareData = {
 		    "more_info":"This software can only access to 'minecraft.net' users' account data",
@@ -190,10 +235,10 @@ while True:
 
     #切换至中文显示
     elif(do == "zh_cn"):
-        language_setting = {"language":"zh_cn"}
-        language_file = json.dumps(language_setting)
-        with open("./config/language.json","w") as f:
-            json.dump(language_file,f)
+        setting = {"language":"zh_cn"}
+        setting_file = json.dumps(language_setting)
+        with open("./config/setting.json","w") as f:
+            json.dump(setting_file,f)
 
         SoftwareData = {
 		    "more_info":"本软件只能访问国际正版用户信息",
