@@ -4,6 +4,8 @@ import base64 as base
 import requests
 import time
 import os
+#import PyQt5 as pyqt
+# not yet
 ###############################软件信息信息初始化#############################################
 about_creater = {
     "eng_name":"Zhi_Ling",
