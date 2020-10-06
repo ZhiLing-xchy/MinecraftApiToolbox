@@ -1,11 +1,11 @@
 # MinecraftApiToolbox（Minecraft Api 工具箱）
-用于获取MOJANG Api中的数据
+## 用于获取MOJANG Api中的数据
 
-获取JSON途径：
+#### 获取JSON途径：
 api.mojang.com
 sessionserver.mojang.com
 
-使用到的库文件：
+#### 使用到的库文件：
 urllib
 json
 base64
@@ -19,8 +19,8 @@ os
 MinecraftSkinDownloader则直接打开exe文件
 
 
-# 说明
-## 语法：
+### 说明
+#### 语法：
     help---------------获取帮助信息
     dlskin-------------下载皮肤
     exit---------------退出
