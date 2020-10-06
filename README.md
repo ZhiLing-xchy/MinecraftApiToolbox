@@ -12,3 +12,19 @@ base64
 requeat
 time
 os
+
+使用时请解压，打开MinecraftApiToolbox.exe
+
+###############不推荐##################
+MinecraftSkinDownloader则直接打开exe文件
+
+
+# 说明
+## 语法：
+    help---------------获取帮助信息
+    dlskin-------------下载皮肤
+    exit---------------退出
+    getuuid------------获取UUID
+    getid--------------获取用户所有使用过的ID
+    en_us--------------切换至英文显示
+    info---------------获取软件信息
