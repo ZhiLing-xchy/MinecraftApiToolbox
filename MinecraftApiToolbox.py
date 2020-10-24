@@ -36,7 +36,7 @@ def Show_SoftwareInfo():
 if not(os.path.exists("./config/setting.json")):
     with open("./config/setting.json","w") as create_setting_config:
         setting = {"language":"zh_cn"}
-        setting_file = json.dumps(language_setting)
+        setting_file = json.dumps(setting)
         json.dump(setting_file,create_setting_config)
     print("Setting not found.Run as default.")
     print("没有找到设置，以默认运行。")
@@ -201,7 +201,7 @@ while True:
     #切换至中文显示
     elif(do == "zh_cn"):
         setting = {"language":"zh_cn"}
-        setting_file = json.dumps(language_setting)
+        setting_file = json.dumps(setting)
         with open("./config/setting.json","w") as f:
             json.dump(setting_file,f)
 
