@@ -39,5 +39,8 @@
     "Change_Time": "更改时间：",
     "lang_switch_to_english": "Language had switch to English",
     "lang_switch_to_chinese": "语言已切换至中文",
-    "unknow_command": "未知指令，输入'help'以获取帮助"
+    "unknow_command": "未知指令，输入'help'以获取帮助",
+    "gui.error": "错误",
+    "gui.error.button": "我知道了",
+    "gui.view_settings.title": "查看设置"
 }

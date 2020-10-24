@@ -1,10 +1,12 @@
-import urllib
-import json
 import base64 as base
-import requests
-import time
+import json
 import os
-#import PyQt5 as pyqt
+import sys
+import time
+import urllib
+#from tkinter import *
+import easygui as gui
+import requests
 ###############################软件信息信息初始化#############################################
 about_creater = {
     "eng_name":"Zhi_Ling",
@@ -17,7 +19,7 @@ about_software = {
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
-intergrade_language_file_zh_cn = {"help":["输入'help'获取帮助信息","输入'dlskin'来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示"],"version":"版本：","creaters":"制作者：","Warning":"警告:","ID":"国际版ID","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":".png)","skin_download_finsh":"完成！耗时：","millisecond":"毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":"的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过","UUID_to_ID_Finsh_2":"个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第","ID_No._2":"个ID：","Change_Time":"更改时间：","lang_switch_to_english":"LanguagehadswitchtoEnglish","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助"}
+intergrade_language_file_zh_cn = {"help":["输入'help'获取帮助信息","输入'dlskin'来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示","输入'viewsettings'来查看设置项"],"version":"版本：","creaters":"制作者：","Warning":"警告: ","ID":"国际版ID","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":".png)","skin_download_finsh":"完成！耗时：","millisecond":" 毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":" 的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过 ","UUID_to_ID_Finsh_2":" 个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第 ","ID_No._2":" 个ID：","Change_Time":"更改时间：","lang_switch_to_english":"Language had switch to English","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助","gui.error":"错误","gui.error.button":"我知道了","gui.view_settings.title":"查看设置"}
 def Show_SoftwareInfo():
     print(about_software['name_en_us'] + "      " + about_software['name_zh_cn'])
     print(language_display['version'] + about_software['version'])
@@ -32,10 +34,13 @@ def Show_SoftwareInfo():
     print("Github @" + about_creater['Github_ID'])
     print("")
 
+#Tk().iconbitmap(default = r'.\MinecraftApiToolbox.ico')
+#Tk().destroy()
+
 ###############################配置文件检查###########################################
 if not(os.path.exists("./config/setting.json")):
     with open("./config/setting.json","w") as create_setting_config:
-        setting = {"language":"zh_cn"}
+        setting = {"language":"zh_cn","Gui":"off"}
         setting_file = json.dumps(setting)
         json.dump(setting_file,create_setting_config)
     print("Setting not found.Run as default.")
@@ -99,6 +104,8 @@ while True:
             hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/users/profiles/minecraft/' + id).read())#按照MOJANG api格式请求JSON
         except:
             print(language_display["getskin_error"])
+            if(setting["Gui"] == "on"):
+                gui.msgbox(language_display['getskin_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
         else:
             print(language_display['parsing_json'])
             #第二次JSON获取并解析
@@ -143,6 +150,8 @@ while True:
             hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/users/profiles/minecraft/' + id).read())#按照MOJANG api格式请求JSON
         except:
             print(language_display['ID_to_UUID_error'])
+            if(setting["Gui"] == "on"):
+                gui.msgbox(language_display['ID_to_UUID_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
         else:
             print(language_display['parsing_json'])
             print(id + language_display['UUID_is'] + hjson['id'])
@@ -156,6 +165,8 @@ while True:
             hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/user/profiles/' + uuid + '/names').read())#按照MOJANG api格式请求JSON
         except:
             print(language_display['UUID_to_ID_Fail'])
+            if(setting["Gui"] == "on"):
+                gui.msgbox(language_display['UUID_to_ID_Fail'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
         else:
             cash = int(len(hjson) - 1)
             print('')
@@ -184,7 +195,7 @@ while True:
 
     #切换至英文显示
     elif(do == "en_us"):
-        setting = {"language":"en_us"}
+        setting["language"] = "en_us"
         setting_file = json.dumps(setting)
         with open("./config/setting.json","w") as f:
             json.dump(setting_file,f)
@@ -200,7 +211,7 @@ while True:
 
     #切换至中文显示
     elif(do == "zh_cn"):
-        setting = {"language":"zh_cn"}
+        setting["language"] = "zh_cn"
         setting_file = json.dumps(setting)
         with open("./config/setting.json","w") as f:
             json.dump(setting_file,f)
@@ -218,5 +229,18 @@ while True:
         with open("./config/setting.json",'r') as setting_load:
             setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
         print(setting)
+        if(setting["Gui"] == "on"):
+            gui.msgbox(setting,title=language_display["gui.view_settings.title"])
+
+    elif(do == "guion"):
+        setting["Gui"] = "on"
+        setting_file = json.dumps(setting)
+        with open("./config/setting.json","w") as f:
+            json.dump(setting_file,f)
+    elif(do == "guioff"):
+        setting["Gui"] = "off"
+        setting_file = json.dumps(setting)
+        with open("./config/setting.json","w") as f:
+            json.dump(setting_file,f)
     else:
         print(language_display['unknow_command'])

@@ -28,7 +28,7 @@
     "UUID_is": "'s UUID is: ",
     "getid_command_help": "If you don't know the UUID, you can use 'getuuid' to query (need to provide the name of the existing player)",
     "request_player_UUID": "Minecraft Player UUID",
-    "UUID_to_ID_Fail": "UUID不存在或出现错误",
+    "UUID_to_ID_Fail": "UUID does not exist or there is an error",
     "UUID_to_ID_Finsh_1": "The UUID has ",
     "UUID_to_ID_Finsh_2": " names in total",
     "nick_now": "Current name：",
@@ -39,5 +39,8 @@
     "Change_Time": "Changed time: ",
     "lang_switch_to_english": "Language had switch to English",
     "lang_switch_to_chinese": "语言已切换至中文",
-    "unknow_command": "unknow command type 'help' for help"
+    "unknow_command": "unknow command type 'help' for help",
+    "gui.error": "Error",
+    "gui.error.button": "I got it",
+    "gui.view_settings.title": "View Settings"
 }
