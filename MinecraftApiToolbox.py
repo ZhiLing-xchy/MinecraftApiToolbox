@@ -5,7 +5,6 @@ import requests
 import time
 import os
 #import PyQt5 as pyqt
-# not yet
 ###############################软件信息信息初始化#############################################
 about_creater = {
     "eng_name":"Zhi_Ling",
@@ -44,8 +43,8 @@ if not(os.path.exists("./config/setting.json")):
 
 ###############################语言文件读取###########################################
 with open("./config/setting.json",'r') as setting_load:
-    language_setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
-language = language_setting['language']
+    setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
+language = setting['language']
 
 if(language == "zh_cn"):
     for i in range(5):
@@ -215,5 +214,9 @@ while True:
             language_display = json.load(language_file_load)
         print(language_display['lang_switch_to_chinese'])
 
+    elif(do == "viewsettings"):
+        with open("./config/setting.json",'r') as setting_load:
+            setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
+        print(setting)
     else:
         print(language_display['unknow_command'])

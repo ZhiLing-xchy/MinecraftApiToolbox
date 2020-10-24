@@ -6,7 +6,8 @@
         "输入'getuuid'来获取UUID",
         "输入'getid'来获取用户所有使用过的ID",
         "输入'info'来获取软件信息",
-        "输入'en_us'来切换至英文显示"
+        "输入'en_us'来切换至英文显示",
+        "输入'viewsettings'来查看设置项"
     ],
     "version": "版本：",
     "creaters": "制作者：",

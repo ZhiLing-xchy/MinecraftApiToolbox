@@ -6,7 +6,8 @@
         "type 'getuuid' to get UUID",
         "type 'getid' to get all ID that the user used",
         "type 'info' to get software info",
-        "type 'zh_cn' to switch to Chinese display"
+        "type 'zh_cn' to switch to Chinese display",
+        "type 'viewsettings' to view al settings"
     ],
     "version": "Version: ",
     "creaters": "By: ",
