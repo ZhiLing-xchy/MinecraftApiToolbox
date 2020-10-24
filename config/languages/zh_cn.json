@@ -1,7 +1,7 @@
 {
     "help": [
-        "输入help获取帮助信息",
-        "输入‘dlskin来下载皮肤",
+        "输入'help'获取帮助信息",
+        "输入'dlskin'来下载皮肤",
         "输入'exit'来退出",
         "输入'getuuid'来获取UUID",
         "输入'getid'来获取用户所有使用过的ID",

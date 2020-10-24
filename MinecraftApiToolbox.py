@@ -18,7 +18,7 @@ about_software = {
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
-intergrade_language_file_zh_cn = {"help":["输入help获取帮助信息","输入‘dlskin来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示"],"version":"版本：","creaters":"制作者：","Warning":"警告:","ID":"国际版ID","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":".png)","skin_download_finsh":"完成！耗时：","millisecond":"毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":"的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过","UUID_to_ID_Finsh_2":"个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第","ID_No._2":"个ID：","Change_Time":"更改时间：","lang_switch_to_english":"LanguagehadswitchtoEnglish","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助"}
+intergrade_language_file_zh_cn = {"help":["输入'help'获取帮助信息","输入'dlskin'来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示"],"version":"版本：","creaters":"制作者：","Warning":"警告:","ID":"国际版ID","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":".png)","skin_download_finsh":"完成！耗时：","millisecond":"毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":"的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过","UUID_to_ID_Finsh_2":"个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第","ID_No._2":"个ID：","Change_Time":"更改时间：","lang_switch_to_english":"LanguagehadswitchtoEnglish","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助"}
 def Show_SoftwareInfo():
     print(about_software['name_en_us'] + "      " + about_software['name_zh_cn'])
     print(language_display['version'] + about_software['version'])
@@ -172,7 +172,7 @@ while True:
                 print(language_display['reg_name'] + hjson[0]['name'])
                 print('')
                 for i in range(1,int(cash + 1),1):
-                    print(language_display['ID_No._1'] + str(i) + language_display['ID_No._2'] + hjson[i]['name'])
+                    print(language_display['ID_No._1'] + str(i + 1) + language_display['ID_No._2'] + hjson[i]['name'])
                     name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[1]['changedToAt'])/1000))
                     print(language_display['Change_Time'] + name_changed_time)
                     print('')
