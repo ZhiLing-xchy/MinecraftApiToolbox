@@ -11,7 +11,7 @@ import requests
 about_creater = {
     "eng_name":"Zhi_Ling",
     "zh_name":"知凌",
-    "BiliBili_ID":"绝不中二的知凌",
+    "BiliBili_ID":"知凌今天也在咕咕呐",
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
