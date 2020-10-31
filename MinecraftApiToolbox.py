@@ -96,7 +96,7 @@ while True:
     print('')
 
     #皮肤下载模块
-    if(do == "dlskin"):
+    if(do == "skindownload"):
         id = input(language_display['ID'] + ">>>")
         print(language_display['getting_json'])
         #第一次JSON获取并解析

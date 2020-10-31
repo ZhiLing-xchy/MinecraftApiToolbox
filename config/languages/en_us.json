@@ -1,7 +1,7 @@
 {
     "help": [
         "type 'help' to get help",
-        "type 'dlskin' to download skin",
+        "type 'skindownload' to download skin",
         "type 'exit' to exit this software",
         "type 'getuuid' to get UUID",
         "type 'getid' to get all ID that the user used",
