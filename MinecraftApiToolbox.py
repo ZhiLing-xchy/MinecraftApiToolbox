@@ -123,7 +123,7 @@ while True:
             skin_url = hjson['textures']['SKIN']['url']
             print(language_display['geted_skin_url'] + skin_url)
             #下载皮肤用代码
-            path =id + ".png"
+            path ="./result/" + id + ".png"
             r=requests.get(skin_url)
             urllib.request.urlopen(skin_url)
             print(language_display['downloading_skin_1'] + id + language_display['downloading_skin_2'])
