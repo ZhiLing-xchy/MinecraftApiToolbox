@@ -7,6 +7,7 @@ import requests
 def downloadskin(id):
     download_result = {
         "time":0,
+        "url":"",
         "path":"",
         "error":""
     }
@@ -37,5 +38,6 @@ def downloadskin(id):
         f.close()
 
         download_result["time"] = len(r.content)
+        download_result["url"] = url
 
         return(download_result)

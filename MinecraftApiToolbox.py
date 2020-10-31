@@ -7,6 +7,10 @@ import urllib
 #from tkinter import *
 import easygui as gui
 import requests
+
+import downloadskin
+import getuuid
+import getid
 ###############################软件信息信息初始化#############################################
 about_creater = {
     "eng_name":"Zhi_Ling",
@@ -96,41 +100,19 @@ while True:
     print('')
 
     #皮肤下载模块
-    if(do == "skindownload"):
+    if(do == "downloadskin"):
         id = input(language_display['ID'] + ">>>")
         print(language_display['getting_json'])
-        #第一次JSON获取并解析
-        try:
-            hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/users/profiles/minecraft/' + id).read())#按照MOJANG api格式请求JSON
-        except:
+        command_output = downloadskin.downloadskin(id)
+        if(command_output["error"] == ""):
+            print(language_display['geted_skin_url'] + command_output["url"])
+            print(language_display['downloading_skin_1'] + command_output["path"] + language_display['downloading_skin_2'])
+            print(language_display['skin_download_finsh'] + str(command_output["time"]) + language_display['millisecond'])
+        else:
             print(language_display["getskin_error"])
             if(setting["Gui"] == "on"):
                 gui.msgbox(language_display['getskin_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
-        else:
-            print(language_display['parsing_json'])
-            #第二次JSON获取并解析
-            print(language_display['getting_skin_json'])
-            url = 'https://sessionserver.mojang.com/session/minecraft/profile/' + hjson['id']
-            html = urllib.request.urlopen(url)
-            hjson = json.loads(html.read())
-            print(language_display['parsing_json'])
-            hjson = hjson['properties']
-            BASE64_JSON = hjson[0]['value']
-            #由于MOJANG的存储特性，在第二份JSON文件中含有被BASE64编码的另一份JSON文件，需要进行BASE64解码
-            print(language_display['ecoding_base64'])
-            #第三次JSON解析
-            hjson = json.loads(''.join(str(base.b64decode(BASE64_JSON).decode())))
-            skin_url = hjson['textures']['SKIN']['url']
-            print(language_display['geted_skin_url'] + skin_url)
-            #下载皮肤用代码
-            path ="./result/" + id + ".png"
-            r=requests.get(skin_url)
-            urllib.request.urlopen(skin_url)
-            print(language_display['downloading_skin_1'] + id + language_display['downloading_skin_2'])
-            with open(path,"wb") as f:
-                f.write(r.content)
-            f.close()
-            print(language_display['skin_download_finsh'] + str(len(r.content)) + language_display['millisecond'])
+
 
     #帮助模块
     elif(do == "help"):
@@ -145,29 +127,26 @@ while True:
     #获取UUID模块
     elif(do == "getuuid"):
         id = input(language_display['ID'] + ">>>")
+        command_output = getuuid.getuuid()
         print(language_display['getting_json'])
-        try:
-            hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/users/profiles/minecraft/' + id).read())#按照MOJANG api格式请求JSON
-        except:
-            print(language_display['ID_to_UUID_error'])
-            if(setting["Gui"] == "on"):
-                gui.msgbox(language_display['ID_to_UUID_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
-        else:
+        if(command_output["error"] == ""):
             print(language_display['parsing_json'])
             print(id + language_display['UUID_is'] + hjson['id'])
+        else:
+            print(language_display["ID_to_UUID_error"])
+            if(setting["Gui"] == "on"):
+                gui.msgbox(language_display['ID_to_UUID_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
+        
+
 
     #获取ID模块
     elif(do == "getid"):
         print(language_display['getid_command_help'])
         uuid = input(language_display['request_player_UUID'] + ">>>")
+        command_output = getid.getid(uuid)
         print(language_display['getting_json'])
-        try:
-            hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/user/profiles/' + uuid + '/names').read())#按照MOJANG api格式请求JSON
-        except:
-            print(language_display['UUID_to_ID_Fail'])
-            if(setting["Gui"] == "on"):
-                gui.msgbox(language_display['UUID_to_ID_Fail'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
-        else:
+        if(command_output["error"] == ""):
+            hjson = command_output["ids"]
             cash = int(len(hjson) - 1)
             print('')
             print('')
@@ -175,7 +154,6 @@ while True:
             print('')
             print(language_display['nick_now'] + hjson[cash]['name'])
             print('')
-
             if(cash > 0):
                 print(language_display['more'])
                 print('')
@@ -225,6 +203,7 @@ while True:
             language_display = json.load(language_file_load)
         print(language_display['lang_switch_to_chinese'])
 
+##查看设置
     elif(do == "viewsettings"):
         with open("./config/setting.json",'r') as setting_load:
             setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
@@ -232,6 +211,7 @@ while True:
         if(setting["Gui"] == "on"):
             gui.msgbox(setting,title=language_display["gui.view_settings.title"])
 
+#GUI设置
     elif(do == "guion"):
         setting["Gui"] = "on"
         setting_file = json.dumps(setting)

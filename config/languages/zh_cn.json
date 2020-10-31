@@ -1,7 +1,7 @@
 {
     "help": [
         "输入'help'获取帮助信息",
-        "输入'skindownload'来下载皮肤",
+        "输入'downloadskin'来下载皮肤",
         "输入'exit'来退出",
         "输入'getuuid'来获取UUID",
         "输入'getid'来获取用户所有使用过的ID",
@@ -20,7 +20,7 @@
     "ecoding_base64": "正在BASE64解码",
     "geted_skin_url": "成功获取皮肤连接：",
     "downloading_skin_1": "正在下载皮肤文件(文件名:",
-    "downloading_skin_2": ".png)",
+    "downloading_skin_2": ")",
     "skin_download_finsh": "完成！耗时：",
     "millisecond": " 毫秒",
     "exiting": "退出中...",

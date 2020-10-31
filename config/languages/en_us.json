@@ -1,7 +1,7 @@
 {
     "help": [
         "type 'help' to get help",
-        "type 'skindownload' to download skin",
+        "type 'downloadskin' to download skin",
         "type 'exit' to exit this software",
         "type 'getuuid' to get UUID",
         "type 'getid' to get all ID that the user used",
@@ -20,7 +20,7 @@
     "ecoding_base64": "BASE64 decoding",
     "geted_skin_url": "Skin URL：",
     "downloading_skin_1": "Downloading skin file(file name:",
-    "downloading_skin_2": ".png)",
+    "downloading_skin_2": ")",
     "skin_download_finsh": "Done! in: ",
     "millisecond": " millisecond",
     "exiting": "exiting...",
