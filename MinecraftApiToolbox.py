@@ -8,9 +8,7 @@ import urllib
 import easygui as gui
 import requests
 
-import downloadskin
-import getuuid
-import getid
+import functions
 ###############################软件信息信息初始化#############################################
 about_creater = {
     "eng_name":"Zhi_Ling",
@@ -103,7 +101,7 @@ while True:
     if(do == "downloadskin"):
         id = input(language_display['ID'] + ">>>")
         print(language_display['getting_json'])
-        command_output = downloadskin.downloadskin(id)
+        command_output = functions.downloadskin(id)
         if(command_output["error"] == ""):
             print(language_display['geted_skin_url'] + command_output["url"])
             print(language_display['downloading_skin_1'] + command_output["path"] + language_display['downloading_skin_2'])
@@ -127,7 +125,7 @@ while True:
     #获取UUID模块
     elif(do == "getuuid"):
         id = input(language_display['ID'] + ">>>")
-        command_output = getuuid.getuuid()
+        command_output = functions.getuuid()
         print(language_display['getting_json'])
         if(command_output["error"] == ""):
             print(language_display['parsing_json'])
@@ -143,7 +141,7 @@ while True:
     elif(do == "getid"):
         print(language_display['getid_command_help'])
         uuid = input(language_display['request_player_UUID'] + ">>>")
-        command_output = getid.getid(uuid)
+        command_output = functions.getid(uuid)
         print(language_display['getting_json'])
         if(command_output["error"] == ""):
             hjson = command_output["ids"]
