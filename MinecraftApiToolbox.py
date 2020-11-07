@@ -220,5 +220,7 @@ while True:
         setting_file = json.dumps(setting)
         with open("./config/setting.json","w") as f:
             json.dump(setting_file,f)
+    elif((do == "egg") or (do == "eggs") or (do == "colloregg") or (do == "colloreggs")):
+        functions.colloreggs()
     else:
         print(language_display['unknow_command'])
