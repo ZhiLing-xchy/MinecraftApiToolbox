@@ -6,6 +6,7 @@ import time
 
 import easygui as gui
 
+#from tkinter import *
 import functions
 
 ###############################软件信息信息初始化#############################################
@@ -107,6 +108,9 @@ while True:
             print(language_display['skin_download_finsh'] + str(command_output["time"]) + language_display['millisecond'])
         else:
             print(language_display["getskin_error"])
+            if(setting["Gui"] == "on"):
+                gui.msgbox(language_display['getskin_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
+
 
     #帮助模块
     elif(do == "help"):
@@ -128,6 +132,10 @@ while True:
             print(id + language_display['UUID_is'] + hjson['id'])
         else:
             print(language_display["ID_to_UUID_error"])
+            if(setting["Gui"] == "on"):
+                gui.msgbox(language_display['ID_to_UUID_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
+        
+
 
     #获取ID模块
     elif(do == "getid"):
@@ -200,7 +208,20 @@ while True:
         with open("./config/setting.json",'r') as setting_load:
             setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
         print(setting)
+        if(setting["Gui"] == "on"):
+            gui.msgbox(setting,title=language_display["gui.view_settings.title"])
 
+#GUI设置
+    elif(do == "guion"):
+        setting["Gui"] = "on"
+        setting_file = json.dumps(setting)
+        with open("./config/setting.json","w") as f:
+            json.dump(setting_file,f)
+    elif(do == "guioff"):
+        setting["Gui"] = "off"
+        setting_file = json.dumps(setting)
+        with open("./config/setting.json","w") as f:
+            json.dump(setting_file,f)
     elif((do == "egg") or (do == "eggs") or (do == "colloregg") or (do == "colloreggs")):
         functions.colloreggs()
     else:
