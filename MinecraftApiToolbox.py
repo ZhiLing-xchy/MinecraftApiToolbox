@@ -4,8 +4,6 @@ import os
 import sys
 import time
 
-import easygui as gui
-
 import functions
 
 ###############################软件信息信息初始化#############################################
