@@ -1,4 +1,6 @@
 {
+    "gui.setupscreen.msg": "Please select the command you want to execute",
+    "gui.ok_button": "I got it",
     "help": [
         "type 'help' to get help",
         "type 'downloadskin' to download skin",
@@ -13,6 +15,7 @@
     "creaters": "By: ",
     "Warning": "Warning: ",
     "ID": "Minecraft PlayerName",
+    "gui.downloadskin.download_finsh": "Download successful. Details are as follows:",
     "getskin_error": "ID does not exist or an exception occurred",
     "getting_json": "Getting user's JSON from MOJANG webside",
     "parsing_json": "Parsing JSON",

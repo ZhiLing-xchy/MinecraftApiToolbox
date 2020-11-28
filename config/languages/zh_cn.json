@@ -1,4 +1,6 @@
 {
+    "gui.setupscreen.msg": "请选择你要执行的命令",
+    "gui.ok_button": "好的",
     "help": [
         "输入'help'获取帮助信息",
         "输入'downloadskin'来下载皮肤",
@@ -13,6 +15,7 @@
     "creaters": "制作者：",
     "Warning": "警告: ",
     "ID": "国际版ID",
+    "gui.downloadskin.download_finsh": "下载成功，详细信息如下:",
     "getskin_error": "ID不存在或发生异常",
     "getting_json": "正在从MOJANG网站获取用户JSON",
     "parsing_json": "正在分析JSON",
