@@ -17,24 +17,35 @@ about_creater = {
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
-    "version":"2.4 beta 20-11-d",
+    "version":"2.4 beta 20-11-e",
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
 intergrade_language_file_zh_cn = {"help":["输入'help'获取帮助信息","输入'dlskin'来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示","输入'viewsettings'来查看设置项"],"version":"版本：","creaters":"制作者：","Warning":"警告: ","ID":"国际版ID","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":".png)","skin_download_finsh":"完成！耗时：","millisecond":" 毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":" 的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过 ","UUID_to_ID_Finsh_2":" 个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第 ","ID_No._2":" 个ID：","Change_Time":"更改时间：","lang_switch_to_english":"Language had switch to English","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助","gui.error":"错误","gui.error.button":"我知道了","gui.view_settings.title":"查看设置"}
 def Show_SoftwareInfo():
     print(about_software['name_en_us'] + "      " + about_software['name_zh_cn'])
+    cash = "" + about_software['name_en_us'] + "      " + about_software['name_zh_cn']
     print(language_display['version'] + about_software['version'])
+    cash = cash + '\n' + language_display['version'] + about_software['version']
     print(language_display['creaters'] + about_creater['zh_name'])
+    cash = cash + '\n' + language_display['creaters'] + about_creater['zh_name']
     print('')
+    cash = cash + '\n'
     print(SoftwareData['more_info'])
+    cash = cash + '\n' + SoftwareData['more_info']
     print('')
+    cash = cash + '\n'
     print(language_display['Warning'] + SoftwareData['note'])
+    cash = cash + '\n' + language_display['Warning'] + SoftwareData['note']
     for i in range(3):
         print("")
+        cash = cash + '\n'
     print("BiliBili @" + about_creater['BiliBili_ID'])
+    cash = cash + '\n' + "BiliBili @" + about_creater['BiliBili_ID']
     print("Github @" + about_creater['Github_ID'])
+    cash = cash + '\n' + "Github @" + about_creater['Github_ID']
     print("")
+    gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=cash)
 
 #Tk().iconbitmap(default = r'.\MinecraftApiToolbox.ico')
 #Tk().destroy()
@@ -96,7 +107,7 @@ for i in range(1):
 ####################################---------Main------------############################################
 while True:
     print('')
-    do = gui.choicebox(msg=language_display['gui.setupscreen.msg'],title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["downloadskin","getuuid","getid","setup","help","exit"])
+    do = gui.choicebox(msg=language_display['gui.setupscreen.msg'],title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["downloadskin","getuuid","getid","setup","info","viewsettings","help","exit"])
     print('')
     #皮肤下载模块
     if(do == "downloadskin"):
@@ -128,12 +139,13 @@ while True:
 
     #获取UUID模块
     elif(do == "getuuid"):
-        id = input(language_display['ID'] + ">>>")
+        id = gui.enterbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display['ID'])
         command_output = functions.getuuid(id)
         print(language_display['getting_json'])
         if(command_output["error"] == ""):
             print(language_display['parsing_json'])
-            print(id + language_display['UUID_is'] + hjson['id'])
+            print(id + language_display['UUID_is'] + command_output['uuid'])
+            gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=id + language_display['UUID_is'] + command_output['uuid'])
         else:
             print(language_display["ID_to_UUID_error"])
             gui.msgbox(language_display['ID_to_UUID_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
@@ -143,30 +155,38 @@ while True:
     #获取ID模块
     elif(do == "getid"):
         print(language_display['getid_command_help'])
-        uuid = input(language_display['request_player_UUID'] + ">>>")
+        uuid = gui.enterbox(title=about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display['request_player_UUID'])
         command_output = functions.getid(uuid)
         print(language_display['getting_json'])
         if(command_output["error"] == ""):
             hjson = command_output["ids"]
             cash = int(len(hjson) - 1)
+            text_cash = '\n' + '\n'
             print('')
             print('')
             print(language_display['UUID_to_ID_Finsh_1'] + str(int(cash + 1)) + language_display['UUID_to_ID_Finsh_2'])
+            text_cash = text_cash + '\n' + language_display['UUID_to_ID_Finsh_1'] + str(int(cash + 1)) + language_display['UUID_to_ID_Finsh_2'] + '\n'
             print('')
             print(language_display['nick_now'] + hjson[cash]['name'])
             print('')
+            text_cash = text_cash + '\n' + language_display['nick_now'] + hjson[cash]['name'] + '\n'
             if(cash > 0):
                 print(language_display['more'])
+                text_cash = text_cash + '\n'+ '\n' + language_display['reg_name'] + hjson[0]['name'] + '\n'
                 print('')
                 print(language_display['reg_name'] + hjson[0]['name'])
                 print('')
                 for i in range(1,int(cash + 1),1):
                     print(language_display['ID_No._1'] + str(i + 1) + language_display['ID_No._2'] + hjson[i]['name'])
-                    name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[1]['changedToAt'])/1000))
+                    text_cash = text_cash + '\n' + language_display['ID_No._1'] + str(i + 1) + language_display['ID_No._2'] + hjson[i]['name']
+                    name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[i + 1]['changedToAt'])/1000))
                     print(language_display['Change_Time'] + name_changed_time)
+                    text_cash = text_cash + '\n' + language_display['Change_Time'] + name_changed_time
                     print('')
             else:
                 print("ID：" + hjson[0]['name'])
+                text_cash = text_cash + '\n' + "ID：" + hjson[0]['name']
+            gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=text_cash)
         else:
             print(language_display['UUID_to_ID_Fail'])
 
@@ -174,45 +194,48 @@ while True:
     elif(do == "info"):
         Show_SoftwareInfo()
 
-    #切换至英文显示
-    elif(do == "en_us"):
-        setting["language"] = "en_us"
-        setting_file = json.dumps(setting)
-        with open("./config/setting.json","w") as f:
-            json.dump(setting_file,f)
+    elif(do == "setup"):
+        do = gui.choicebox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["language"])
+        if(do == "language"):
+            do = gui.choicebox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["zh_cn","en_us"])
+            #切换至英文显示
+            if(do == "en_us"):
+                setting["language"] = "en_us"
+                setting_file = json.dumps(setting)
+                with open("./config/setting.json","w") as f:
+                    json.dump(setting_file,f)
 
-        SoftwareData = {
-		    "more_info":"This software can only access to 'minecraft.net' users' account data",
-		    "note":"Please connect to the Internet, otherwise an error will appear"
-            }
+                SoftwareData = {
+	    	        "more_info":"This software can only access to 'minecraft.net' users' account data",
+		            "note":"Please connect to the Internet, otherwise an error will appear"
+                    }
 
-        with open("./config/languages/en_us.json",'r', encoding="utf-8") as language_file_load:
-            language_display = json.load(language_file_load)
-        print(language_display['lang_switch_to_english'])
+                with open("./config/languages/en_us.json",'r', encoding="utf-8") as language_file_load:
+                    language_display = json.load(language_file_load)
+                print(language_display['lang_switch_to_english'])
 
-    #切换至中文显示
-    elif(do == "zh_cn"):
-        setting["language"] = "zh_cn"
-        setting_file = json.dumps(setting)
-        with open("./config/setting.json","w") as f:
-            json.dump(setting_file,f)
+            #切换至中文显示
+            elif(do == "zh_cn"):
+                setting["language"] = "zh_cn"
+                setting_file = json.dumps(setting)
+                with open("./config/setting.json","w") as f:
+                    json.dump(setting_file,f)
 
-        SoftwareData = {
-		    "more_info":"本软件只能访问国际正版用户信息",
-		    "note":"请连接至互联网，否则会出现报错"
-            }
+                SoftwareData = {
+	    	        "more_info":"本软件只能访问国际正版用户信息",
+		            "note":"请连接至互联网，否则会出现报错"
+                    }
 
-        with open("./config/languages/zh_cn.json",'r', encoding="utf-8") as language_file_load:
-            language_display = json.load(language_file_load)
-        print(language_display['lang_switch_to_chinese'])
+                with open("./config/languages/zh_cn.json",'r', encoding="utf-8") as language_file_load:
+                    language_display = json.load(language_file_load)
+                print(language_display['lang_switch_to_chinese'])
 
 ##查看设置
     elif(do == "viewsettings"):
         with open("./config/setting.json",'r') as setting_load:
             setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
         print(setting)
-        if(setting["Gui"] == "on"):
-            gui.msgbox(setting,title=language_display["gui.view_settings.title"])
+        gui.msgbox(setting,title=language_display["gui.view_settings.title"])
 
 #GUI设置
     elif(do == "guion"):

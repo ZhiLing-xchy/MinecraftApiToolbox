@@ -14,7 +14,7 @@ about_creater = {
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
-    "version":"2.4 beta 20-11-d",
+    "version":"2.4 beta 20-11-e",
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
@@ -149,7 +149,7 @@ while True:
                 print('')
                 for i in range(1,int(cash + 1),1):
                     print(language_display['ID_No._1'] + str(i + 1) + language_display['ID_No._2'] + hjson[i]['name'])
-                    name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[1]['changedToAt'])/1000))
+                    name_changed_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(int(hjson[i + 1]['changedToAt'])/1000))
                     print(language_display['Change_Time'] + name_changed_time)
                     print('')
             else:
