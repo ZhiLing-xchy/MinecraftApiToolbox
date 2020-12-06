@@ -1,6 +1,10 @@
 {
     "gui.setupscreen.msg": "请选择你要执行的命令",
     "gui.ok_button": "好的",
+    "gui.setup.title": "setup-设置",
+    "gui.setup.msg": "设置项",
+    "gui.setup.language.title": "设置-语言",
+    "gui.setup.language.msg": "请选择语言",
     "help": [
         "输入'help'获取帮助信息",
         "输入'downloadskin'来下载皮肤",

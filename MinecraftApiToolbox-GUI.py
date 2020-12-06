@@ -195,9 +195,9 @@ while True:
         Show_SoftwareInfo()
 
     elif(do == "setup"):
-        do = gui.choicebox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["language"])
+        do = gui.choicebox(title = language_display["gui.setup.title"] + "-----" + about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg= language_display["gui.setup.msg"],choices=["language"])
         if(do == "language"):
-            do = gui.choicebox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["zh_cn","en_us"])
+            do = gui.choicebox(title =language_display["gui.setup.language.title"] + "-----" + about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display["gui.setup.language.msg"],choices=["zh_cn","en_us"])
             #切换至英文显示
             if(do == "en_us"):
                 setting["language"] = "en_us"

@@ -1,6 +1,10 @@
 {
     "gui.setupscreen.msg": "Please select the command you want to execute",
     "gui.ok_button": "I got it",
+    "gui.setup.title": "Settings",
+    "gui.setup.msg": "set item",
+    "gui.setup.language.title": "Settings-Language",
+    "gui.setup.language.msg": "please select language",
     "help": [
         "type 'help' to get help",
         "type 'downloadskin' to download skin",
