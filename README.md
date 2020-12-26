@@ -12,6 +12,7 @@ base64
 requeat
 time
 os
+easygui
 
 ### 使用时请解压，打开MinecraftApiToolbox.exe
 
