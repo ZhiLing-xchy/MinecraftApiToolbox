@@ -5,6 +5,7 @@
     "gui.setup.msg": "set item",
     "gui.setup.language.title": "Settings-Language",
     "gui.setup.language.msg": "please select language",
+    "gui.hitokoto.title": "A word(Hitokoto)",
     "help": [
         "type 'help' to get help",
         "type 'downloadskin' to download skin",
@@ -49,5 +50,9 @@
     "unknow_command": "unknow command type 'help' for help",
     "gui.error": "Error",
     "gui.error.button": "I got it",
-    "gui.view_settings.title": "View Settings"
+    "gui.view_settings.title": "View Settings",
+    "info.api_used.title": "API interface used",
+    "info.api_used.apis": ["Hitoko(一言)(v1.hitokoto.cn)", "Mojang Api(api.mojang.com)", "Mojang Session Server Api(sessionserver.mojang.com)"],
+    "info.libraries_used.title": "Library files used",
+    "info.libraries_used": ["urllib", "requests", "time", "os", "json", "base64", "sys", "easygui"]
 }

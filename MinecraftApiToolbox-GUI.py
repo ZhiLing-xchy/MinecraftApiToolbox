@@ -17,7 +17,7 @@ about_creater = {
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
-    "version":"2.4 beta 20-11-e",
+    "version":"2.4 beta 21-1-a",
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
@@ -45,7 +45,23 @@ def Show_SoftwareInfo():
     print("Github @" + about_creater['Github_ID'])
     cash = cash + '\n' + "Github @" + about_creater['Github_ID']
     print("")
-    gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=cash)
+    print('\n'*3)
+    cash = cash + '\n' +'\n'*3
+    print(language_display['info.api_used.title'])
+    cash = cash + '\n' + language_display['info.api_used.title']
+    cash2 = ""
+    for i in range(0,len(language_display['info.api_used.apis'])):
+        cash2 = cash2 + "\n" + language_display['info.api_used.apis'][i]
+    print(cash2)
+    cash = cash + '\n' + cash2
+    print('\n'*2 + language_display['info.libraries_used.title'])
+    cash = cash + '\n'*3 + language_display['info.libraries_used.title']
+    for i in range(0,len(language_display['info.libraries_used'])):
+        cash2 = cash2 + "\n" + language_display['info.libraries_used'][i]
+    print(cash2)
+    cash = cash + '\n' + cash2
+
+    gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=cash)
 
 #Tk().iconbitmap(default = r'.\MinecraftApiToolbox.ico')
 #Tk().destroy()
@@ -107,18 +123,18 @@ for i in range(1):
 ####################################---------Main------------############################################
 while True:
     print('')
-    do = gui.choicebox(msg=language_display['gui.setupscreen.msg'],title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["downloadskin","getuuid","getid","setup","info","viewsettings","help","exit"])
+    do = gui.choicebox(msg=language_display['gui.setupscreen.msg'],title = about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["downloadskin","getuuid","getid","setup","info","viewsettings","help","exit","hitokoto"])
     print('')
     #皮肤下载模块
     if(do == "downloadskin"):
-        id = gui.enterbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display['ID'])
+        id = gui.enterbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ") " + "——" + "downloadskin",msg=language_display['ID'])
         print(language_display['getting_json'])
         command_output = functions.downloadskin(id)
         if(command_output["error"] == ""):
             print(language_display['geted_skin_url'] + command_output["url"])
             print(language_display['downloading_skin_1'] + command_output["path"] + language_display['downloading_skin_2'])
             print(language_display['skin_download_finsh'] + str(command_output["time"]) + language_display['millisecond'])
-            gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=(language_display['geted_skin_url'] + command_output["url"] + '\n' + language_display['downloading_skin_1'] + command_output["path"] + language_display['downloading_skin_2'] + "\n" + language_display['skin_download_finsh'] + str(command_output["time"]) + language_display['millisecond']))
+            gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + "——" + "downloadskin",msg=(language_display['geted_skin_url'] + command_output["url"] + '\n' + language_display['downloading_skin_1'] + command_output["path"] + language_display['downloading_skin_2'] + "\n" + language_display['skin_download_finsh'] + str(command_output["time"]) + language_display['millisecond']))
         else:
             print(language_display["getskin_error"])
             gui.msgbox(msg=language_display['getskin_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
@@ -130,22 +146,22 @@ while True:
         for i in range(0,int(len(language_display['help'])),1):
             print(language_display['help'][i])
             cash = cash + '\n' + language_display['help'][i]
-        gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=cash,ok_button=language_display['gui.ok_button'])
+        gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ") " + "——" + "help",msg=cash,ok_button=language_display['gui.ok_button'])
 
     #退出模块
-    elif(do == "None" or do == "exit"):
+    elif(do == "None" or do == "exit" or do == None):
         print(language_display['exiting'])
         break
 
     #获取UUID模块
     elif(do == "getuuid"):
-        id = gui.enterbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display['ID'])
+        id = gui.enterbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + " ——" + "getuuid",msg=language_display['ID'])
         command_output = functions.getuuid(id)
         print(language_display['getting_json'])
         if(command_output["error"] == ""):
             print(language_display['parsing_json'])
             print(id + language_display['UUID_is'] + command_output['uuid'])
-            gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=id + language_display['UUID_is'] + command_output['uuid'])
+            gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + " ——" + "getuuid",msg=id + language_display['UUID_is'] + command_output['uuid'])
         else:
             print(language_display["ID_to_UUID_error"])
             gui.msgbox(language_display['ID_to_UUID_error'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
@@ -155,7 +171,7 @@ while True:
     #获取ID模块
     elif(do == "getid"):
         print(language_display['getid_command_help'])
-        uuid = gui.enterbox(title=about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display['request_player_UUID'])
+        uuid = gui.enterbox(title= about_software['name_en_us'] + "(" + about_software['version'] + ")" + " ——" + "getid",msg=language_display['request_player_UUID'])
         command_output = functions.getid(uuid)
         print(language_display['getting_json'])
         if(command_output["error"] == ""):
@@ -186,9 +202,10 @@ while True:
             else:
                 print("ID：" + hjson[0]['name'])
                 text_cash = text_cash + '\n' + "ID：" + hjson[0]['name']
-            gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=text_cash)
+            gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + " ——" + "getid",msg=text_cash)
         else:
             print(language_display['UUID_to_ID_Fail'])
+            gui.msgbox(language_display['UUID_to_ID_Fail'],title=language_display['gui.error'],ok_button=language_display['gui.error.button'])
 
     #获取软件信息模块
     elif(do == "info"):
@@ -237,19 +254,14 @@ while True:
         print(setting)
         gui.msgbox(setting,title=language_display["gui.view_settings.title"])
 
-#GUI设置
-    elif(do == "guion"):
-        setting["Gui"] = "on"
-        setting_file = json.dumps(setting)
-        with open("./config/setting.json","w") as f:
-            json.dump(setting_file,f)
-    elif(do == "guioff"):
-        setting["Gui"] = "off"
-        setting_file = json.dumps(setting)
-        with open("./config/setting.json","w") as f:
-            json.dump(setting_file,f)
+    elif(do == "yiyan" or do == "hitokoto"):
+        command_output = functions.yiyan(False)
+        print(command_output['yiyan'] + "——" + command_output['from'])
+        gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + "——" + language_display['gui.hitokoto.title'],msg = command_output['yiyan'] + "——" + command_output['from'])
+
     elif((do == "egg") or (do == "eggs") or (do == "colloregg") or (do == "colloreggs")):
         functions.colloreggs()
     else:
         print(language_display['unknow_command'])
-        gui.msgbox(title = about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display['unknow_command'])
+        gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + " ——" + "Unknow command",msg=language_display['unknow_command'])
+

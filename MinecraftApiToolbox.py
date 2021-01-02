@@ -14,7 +14,7 @@ about_creater = {
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
-    "version":"2.4 beta 20-11-e",
+    "version":"2.4 beta 21-1-a",
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
@@ -80,6 +80,9 @@ elif(language == "en_us"):
 ##################################初始屏幕############################################
 #没什么卵用只是为了好收起代码用的只循环一次的For循环
 for i in range(1):
+    command_output = functions.yiyan(False)
+    print(command_output['yiyan'] + "——" + command_output['from'])
+    print('\n'+'\n')
     print(about_software['name_en_us'] + "      " + about_software['name_zh_cn'])
     print(language_display['version'] + about_software['version'])
     print(language_display['creaters'] + about_creater['zh_name'])
@@ -201,5 +204,10 @@ while True:
 
     elif((do == "egg") or (do == "eggs") or (do == "colloregg") or (do == "colloreggs")):
         functions.colloreggs()
+
+#一言
+    elif(do == "hitokoto" or do == "yiyan"):
+        command_output = functions.yiyan(False)
+        print(command_output['yiyan'] + "——" + command_output['from'])
     else:
         print(language_display['unknow_command'])
