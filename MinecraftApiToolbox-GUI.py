@@ -56,6 +56,7 @@ def Show_SoftwareInfo():
     cash = cash + '\n' + cash2
     print('\n'*2 + language_display['info.libraries_used.title'])
     cash = cash + '\n'*3 + language_display['info.libraries_used.title']
+    cash2 = ""
     for i in range(0,len(language_display['info.libraries_used'])):
         cash2 = cash2 + "\n" + language_display['info.libraries_used'][i]
     print(cash2)

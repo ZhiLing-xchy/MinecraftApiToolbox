@@ -32,6 +32,17 @@ def Show_SoftwareInfo():
     print("BiliBili @" + about_creater['BiliBili_ID'])
     print("Github @" + about_creater['Github_ID'])
     print("")
+    print('\n'*3)
+    print(language_display['info.api_used.title'])
+    cash2 = ""
+    for i in range(0,len(language_display['info.api_used.apis'])):
+        cash2 = cash2 + "\n" + language_display['info.api_used.apis'][i]
+    print(cash2)
+    cash2 = ""
+    print('\n'*2 + language_display['info.libraries_used.title'])
+    for i in range(0,len(language_display['info.libraries_used'])):
+        cash2 = cash2 + "\n" + language_display['info.libraries_used'][i]
+    print(cash2)
 
 #Tk().iconbitmap(default = r'.\MinecraftApiToolbox.ico')
 #Tk().destroy()

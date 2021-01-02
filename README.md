@@ -1,5 +1,5 @@
 # MinecraftApiToolbox（Minecraft Api 工具箱）
-## 用于获取MOJANG Api中的数据
+## 用于获取MOJANG Api中的数据和一些其他的功能 ### （会不会最后做成了Minecraft User's Helper [doge]）
 
 #### 获取JSON途径：
 api.mojang.com
@@ -9,10 +9,14 @@ sessionserver.mojang.com
 urllib
 json
 base64
-requeat
+requests
 time
 os
+sys
 easygui
+
+#### 使用到的Api(除MOJANG Api)：
+Hitokoto(一言)(v1.hitokoto.cn)
 
 ### 使用时请解压，打开MinecraftApiToolbox.exe
 
@@ -31,5 +35,5 @@ easygui
     zh_cn--------------切换至中文显示
     info---------------获取软件信息
     viewsettings-------查看当前设置
-    guion--------------打开Gui
-    guioff-------------关闭Gui
+    hitokoto(或yiyan)--一言
+    
