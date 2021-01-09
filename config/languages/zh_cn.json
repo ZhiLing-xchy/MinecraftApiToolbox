@@ -52,7 +52,7 @@
     "gui.error.button": "我知道了",
     "gui.view_settings.title": "查看设置",
     "info.api_used.title": "使用到的API接口",
-    "info.api_used.apis": ["Hitoko(一言)(v1.hitokoto.cn)", "Mojang Api(api.mojang.com)", "Mojang Session Server Api(sessionserver.mojang.com)"],
+    "info.api_used.apis": ["Hitoko(一言)(v1.hitokoto.cn)", "百度翻译(api.fanyi.baidu.com)", "Mojang Api(api.mojang.com)", "Mojang Session Server Api(sessionserver.mojang.com)"],
     "info.libraries_used.title": "使用到的库文件",
     "info.libraries_used": ["urllib", "requests", "time", "os", "json", "base64", "sys", "easygui"]
 }

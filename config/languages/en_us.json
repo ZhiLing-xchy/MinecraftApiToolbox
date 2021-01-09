@@ -52,7 +52,7 @@
     "gui.error.button": "I got it",
     "gui.view_settings.title": "View Settings",
     "info.api_used.title": "API interface used",
-    "info.api_used.apis": ["Hitoko(一言)(v1.hitokoto.cn)", "Mojang Api(api.mojang.com)", "Mojang Session Server Api(sessionserver.mojang.com)"],
+    "info.api_used.apis": ["Hitoko(A Word)(v1.hitokoto.cn)", "BaiDu Translate(api.fanyi.baidu.com)", "Mojang Api(api.mojang.com)", "Mojang Session Server Api(sessionserver.mojang.com)"],
     "info.libraries_used.title": "Library files used",
     "info.libraries_used": ["urllib", "requests", "time", "os", "json", "base64", "sys", "easygui"]
 }

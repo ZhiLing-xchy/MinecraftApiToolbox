@@ -3,7 +3,8 @@ import json
 import os
 import sys
 import time
-
+from hashlib import md5
+import random
 import functions
 
 ###############################软件信息信息初始化#############################################
@@ -90,9 +91,13 @@ elif(language == "en_us"):
 
 ##################################初始屏幕############################################
 #没什么卵用只是为了好收起代码用的只循环一次的For循环
+baiduapi_salt = random.randint(100000,1000000)
 for i in range(1):
     command_output = functions.yiyan(False)
-    print(command_output['yiyan'] + "——" + command_output['from'])
+    if setting["language"] == "en_us":
+        print(functions.baidufanyi(command_output['yiyan'] + "——" + command_output['from'],"en"))
+    elif setting["language"] == "zh_cn":
+        print(command_output['yiyan'] + "——" + command_output['from'])
     print('\n'+'\n')
     print(about_software['name_en_us'] + "      " + about_software['name_zh_cn'])
     print(language_display['version'] + about_software['version'])
@@ -219,6 +224,9 @@ while True:
 #一言
     elif(do == "hitokoto" or do == "yiyan"):
         command_output = functions.yiyan(False)
-        print(command_output['yiyan'] + "——" + command_output['from'])
+        if setting["language"] == "zh_cn":
+            print(command_output['yiyan'] + "——" + command_output['from'])
+        elif setting["language"] == "en_us":
+            print(functions.baidufanyi(command_output['yiyan'] + "——" + command_output['from'],"en"))
     else:
         print(language_display['unknow_command'])

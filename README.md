@@ -1,5 +1,6 @@
 # MinecraftApiToolbox（Minecraft Api 工具箱）
-## 用于获取MOJANG Api中的数据和一些其他的功能 ### （会不会最后做成了Minecraft User's Helper [doge]）
+## 用于获取MOJANG Api中的数据和一些其他的功能 
+##### （会不会最后做成了Minecraft User's Helper [doge]）
 
 #### 获取JSON途径：
 api.mojang.com
@@ -17,6 +18,7 @@ easygui
 
 #### 使用到的Api(除MOJANG Api)：
 Hitokoto(一言)(v1.hitokoto.cn)
+百度翻译(api.fanyi.baidu.com)
 
 ### 使用时请解压，打开MinecraftApiToolbox.exe
 

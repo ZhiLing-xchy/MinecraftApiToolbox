@@ -124,7 +124,7 @@ for i in range(1):
 ####################################---------Main------------############################################
 while True:
     print('')
-    do = gui.choicebox(msg=language_display['gui.setupscreen.msg'],title = about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["downloadskin","getuuid","getid","setup","info","viewsettings","help","exit","hitokoto"])
+    do = gui.choicebox(msg=language_display['gui.setupscreen.msg'],title = about_software['name_en_us'] + "(" + about_software['version'] + ")",choices=["downloadskin","getuuid","getid","setup","info","help","hitokoto"])
     print('')
     #皮肤下载模块
     if(do == "downloadskin"):
@@ -213,7 +213,7 @@ while True:
         Show_SoftwareInfo()
 
     elif(do == "setup"):
-        do = gui.choicebox(title = language_display["gui.setup.title"] + "-----" + about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg= language_display["gui.setup.msg"],choices=["language"])
+        do = gui.choicebox(title = language_display["gui.setup.title"] + "-----" + about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg= language_display["gui.setup.msg"],choices=["language","viewsettings"])
         if(do == "language"):
             do = gui.choicebox(title =language_display["gui.setup.language.title"] + "-----" + about_software['name_en_us'] + " -- " + about_software['name_en_us'] + "(" + about_software['version'] + ")",msg=language_display["gui.setup.language.msg"],choices=["zh_cn","en_us"])
             #切换至英文显示
@@ -247,18 +247,23 @@ while True:
                 with open("./config/languages/zh_cn.json",'r', encoding="utf-8") as language_file_load:
                     language_display = json.load(language_file_load)
                 print(language_display['lang_switch_to_chinese'])
+        ##查看设置
+        elif(do == "viewsettings"):
+            with open("./config/setting.json",'r') as setting_load:
+                setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
+            print(setting)
+            gui.msgbox(setting,title=language_display["gui.view_settings.title"])
 
-##查看设置
-    elif(do == "viewsettings"):
-        with open("./config/setting.json",'r') as setting_load:
-            setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
-        print(setting)
-        gui.msgbox(setting,title=language_display["gui.view_settings.title"])
-
+#hitokoto
     elif(do == "yiyan" or do == "hitokoto"):
         command_output = functions.yiyan(False)
-        print(command_output['yiyan'] + "——" + command_output['from'])
-        gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + "——" + language_display['gui.hitokoto.title'],msg = command_output['yiyan'] + "——" + command_output['from'])
+        cash = command_output['yiyan'] + "——" + command_output['from']
+        if setting["language"] == "en_us":
+            cash = functions.baidufanyi(cash,"en")
+        elif setting["language"] == "zh_cn":
+            cash = cash
+        print(cash)
+        gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + "——" + language_display['gui.hitokoto.title'],msg = cash)
 
     elif((do == "egg") or (do == "eggs") or (do == "colloregg") or (do == "colloreggs")):
         functions.colloreggs()
