@@ -38,4 +38,17 @@ Hitokoto(一言)(v1.hitokoto.cn)
     info---------------获取软件信息
     viewsettings-------查看当前设置
     hitokoto(或yiyan)--一言
-    
+
+#### GUI版本目录结构
+    Main
+        downloadskin
+        getuuid
+        getid
+        setup
+            language
+                zh_cn
+                en_us
+            viewsettings
+        info
+        help
+        hitokoto

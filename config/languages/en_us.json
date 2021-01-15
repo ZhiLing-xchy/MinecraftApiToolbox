@@ -6,16 +6,34 @@
     "gui.setup.language.title": "Settings-Language",
     "gui.setup.language.msg": "please select language",
     "gui.hitokoto.title": "A word(Hitokoto)",
-    "help": [
-        "type 'help' to get help",
-        "type 'downloadskin' to download skin",
-        "type 'exit' to exit this software",
-        "type 'getuuid' to get UUID",
-        "type 'getid' to get all ID that the user used",
-        "type 'info' to get software info",
-        "type 'zh_cn' to switch to Chinese display",
-        "type 'viewsettings' to view al settings"
-    ],
+    "help": {
+        "cmd": [
+            "type 'help' to get help",
+            "type 'downloadskin' to download skin",
+            "type 'exit' to exit this software",
+            "type 'getuuid' to get UUID",
+            "type 'getid' to get all ID that the user used",
+            "type 'info' to get software info",
+            "type 'zh_cn' to switch to Chinese display",
+            "type 'viewsettings' to view al settings",
+            "type 'hitokoto' to get a word"
+        ],
+        "gui": [
+
+            "Main   (Main page)",
+            "    downloadskin   (Get Minecraft user's skin)",
+            "    getuuid    (Get Minecraft user's UUID)",
+            "    getid  (Get all history IDs)",
+            "    setup  (Setting)",
+            "        language   (Lanugage settings)",
+            "            zh_cn  (Simplified Chinese)",
+            "            en_us  (English)",
+            "        viewsettings   (View settings)",
+            "    info   (About software)",
+            "    help   (Help)",
+            "    hitokoto   (A word)"
+        ]
+    },
     "version": "Version: ",
     "creaters": "By: ",
     "Warning": "Warning: ",

@@ -21,7 +21,7 @@ about_software = {
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
-intergrade_language_file_zh_cn = {"help":["输入'help'获取帮助信息","输入'dlskin'来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示","输入'viewsettings'来查看设置项"],"version":"版本：","creaters":"制作者：","Warning":"警告: ","ID":"国际版ID","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":".png)","skin_download_finsh":"完成！耗时：","millisecond":" 毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":" 的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过 ","UUID_to_ID_Finsh_2":" 个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第 ","ID_No._2":" 个ID：","Change_Time":"更改时间：","lang_switch_to_english":"Language had switch to English","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助","gui.error":"错误","gui.error.button":"我知道了","gui.view_settings.title":"查看设置"}
+intergrade_language_file_zh_cn = {"gui.setupscreen.msg":"请选择你要执行的命令","gui.ok_button":"好的","gui.setup.title":"setup-设置","gui.setup.msg":"设置项","gui.setup.language.title":"设置-语言","gui.setup.language.msg":"请选择语言","gui.hitokoto.title":"一言(Hitokoto)","help":{"cmd":["输入'help'获取帮助信息","输入'downloadskin'来下载皮肤","输入'exit'来退出","输入'getuuid'来获取UUID","输入'getid'来获取用户所有使用过的ID","输入'info'来获取软件信息","输入'en_us'来切换至英文显示","输入'viewsettings'来查看设置项","输入'hitokoto'来获取'一言'"],"gui":["Main   (主页面)","    downloadskin   (获取皮肤)","    getuuid    (获取UUID)","    getid  (获取所有历史ID)","    setup  (设置)","        language   (语言)","            zh_cn  (中文-简体)","            en_us  (英文)","        viewsettings   (查看设置)","    info   (关于)","    help   (帮助)","    hitokoto   (一言)"]},"version":"版本：","creaters":"制作者：","Warning":"警告: ","ID":"国际版ID","gui.downloadskin.download_finsh":"下载成功，详细信息如下:","getskin_error":"ID不存在或发生异常","getting_json":"正在从MOJANG网站获取用户JSON","parsing_json":"正在分析JSON","getting_skin_json":"正在从MOJANG获取带有皮肤信息的JSON","ecoding_base64":"正在BASE64解码","geted_skin_url":"成功获取皮肤连接：","downloading_skin_1":"正在下载皮肤文件(文件名:","downloading_skin_2":")","skin_download_finsh":"完成！耗时：","millisecond":" 毫秒","exiting":"退出中...","ID_to_UUID_error":"ID不存在或发生异常","UUID_is":" 的UUID是:","getid_command_help":"如果不知到UUID，可以使用'getuuid'查询(需要提供现有玩家名)","request_player_UUID":"国际版UUID","UUID_to_ID_Fail":"UUID不存在或出现错误","UUID_to_ID_Finsh_1":"该UUID一共拥有过 ","UUID_to_ID_Finsh_2":" 个名称","nick_now":"当前名称：","more":"更多：","reg_name":"原始名称：","ID_No._1":"第 ","ID_No._2":" 个ID：","Change_Time":"更改时间：","lang_switch_to_english":"Language had switch to English","lang_switch_to_chinese":"语言已切换至中文","unknow_command":"未知指令，输入'help'以获取帮助","gui.error":"错误","gui.error.button":"我知道了","gui.view_settings.title":"查看设置","info.api_used.title":"使用到的API接口","info.api_used.apis":["Hitoko(一言)(v1.hitokoto.cn)","百度翻译(api.fanyi.baidu.com)","Mojang Api(api.mojang.com)","Mojang Session Server Api(sessionserver.mojang.com)"],"info.libraries_used.title":"使用到的库文件","info.libraries_used":["urllib","requests","time","os","json","base64","sys","easygui"]}
 def Show_SoftwareInfo():
     print(about_software['name_en_us'] + "      " + about_software['name_zh_cn'])
     cash = "" + about_software['name_en_us'] + "      " + about_software['name_zh_cn']
@@ -144,9 +144,9 @@ while True:
     #帮助模块
     elif(do == "help"):
         cash = ""
-        for i in range(0,int(len(language_display['help'])),1):
-            print(language_display['help'][i])
-            cash = cash + '\n' + language_display['help'][i]
+        for i in range(0,int(len(language_display['help']['gui'])),1):
+            print(language_display['help']['gui'][i])
+            cash = cash + '\n' + language_display['help']['gui'][i]
         gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ") " + "——" + "help",msg=cash,ok_button=language_display['gui.ok_button'])
 
     #退出模块

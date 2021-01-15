@@ -6,16 +6,34 @@
     "gui.setup.language.title": "设置-语言",
     "gui.setup.language.msg": "请选择语言",
     "gui.hitokoto.title": "一言(Hitokoto)",
-    "help": [
-        "输入'help'获取帮助信息",
-        "输入'downloadskin'来下载皮肤",
-        "输入'exit'来退出",
-        "输入'getuuid'来获取UUID",
-        "输入'getid'来获取用户所有使用过的ID",
-        "输入'info'来获取软件信息",
-        "输入'en_us'来切换至英文显示",
-        "输入'viewsettings'来查看设置项"
-    ],
+    "help": {
+        "cmd": [
+            "输入'help'获取帮助信息",
+            "输入'downloadskin'来下载皮肤",
+            "输入'exit'来退出",
+            "输入'getuuid'来获取UUID",
+            "输入'getid'来获取用户所有使用过的ID",
+            "输入'info'来获取软件信息",
+            "输入'en_us'来切换至英文显示",
+            "输入'viewsettings'来查看设置项",
+            "输入'hitokoto'来获取'一言'"
+        ],
+        "gui": [
+
+            "Main   (主页面)",
+            "    downloadskin   (获取皮肤)",
+            "    getuuid    (获取UUID)",
+            "    getid  (获取所有历史ID)",
+            "    setup  (设置)",
+            "        language   (语言)",
+            "            zh_cn  (中文-简体)",
+            "            en_us  (英文)",
+            "        viewsettings   (查看设置)",
+            "    info   (关于)",
+            "    help   (帮助)",
+            "    hitokoto   (一言)"
+        ]
+    },
     "version": "版本：",
     "creaters": "制作者：",
     "Warning": "警告: ",
