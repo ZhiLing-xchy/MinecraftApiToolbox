@@ -93,15 +93,12 @@ def yiyan(write_to_file):
     return yi_yan
 
 def baidufanyi(yuan_wen,to):
-        baiduapi_salt = random.randint(1000000,10000000)
-        cash = "20201114000616170" + str(yuan_wen) + str(baiduapi_salt) + base.b64decode("OWFSclhwOVhYQVBqVklpQjFHdUU=").decode("utf-8")
-        sign = md5(cash.encode("utf-8")).hexdigest()
-        appid = "20201114000616170"
-        url = "https://fanyi-api.baidu.com/api/trans/vip/translate?q=" + yuan_wen + "&from=auto&to=" + to + "&appid=" + appid + "&salt=" + str(baiduapi_salt) + "&sign=" + sign
-        result = requests.get(url)
-        result = result.json()
-        return(result['trans_result'][0]['dst'])
-
-#        result = urllib.request.urlopen(url.encode("utf-8"))
-#        print(result)
-#        return(result)
+#        baiduapi_salt = random.randint(1000000,10000000)
+#        cash = "20201114000616170" + str(yuan_wen) + str(baiduapi_salt) + base.b64decode("OWFSclhwOVhYQVBqVklpQjFHdUU=").decode("utf-8")
+#        sign = md5(cash.encode("utf-8")).hexdigest()
+#        appid = "20201114000616170"
+#        url = "https://fanyi-api.baidu.com/api/trans/vip/translate?q=" + yuan_wen + "&from=auto&to=" + to + "&appid=" + appid + "&salt=" + str(baiduapi_salt) + "&sign=" + sign
+#        result = requests.get(url)
+#        result = result.json()
+#        return(result['trans_result'][0]['dst'])
+        return(yuan_wen)

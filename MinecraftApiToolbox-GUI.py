@@ -17,7 +17,7 @@ about_creater = {
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
-    "version":"2.4 beta 21-1-a",
+    "version":"2.4",
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
@@ -254,7 +254,7 @@ while True:
             print(setting)
             gui.msgbox(setting,title=language_display["gui.view_settings.title"])
 
-#hitokoto
+#hitokoto###Not finsh yet
     elif(do == "yiyan" or do == "hitokoto"):
         command_output = functions.yiyan(False)
         cash = command_output['yiyan'] + "——" + command_output['from']
@@ -264,6 +264,7 @@ while True:
             cash = cash
         print(cash)
         gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + "——" + language_display['gui.hitokoto.title'],msg = cash)
+#        gui.msgbox(title = about_software['name_en_us'] + "(" + about_software['version'] + ")" + " ——" + "Unknow command",msg="No finsh yet.暂未完成")
 
     elif((do == "egg") or (do == "eggs") or (do == "colloregg") or (do == "colloreggs")):
         functions.colloreggs()
