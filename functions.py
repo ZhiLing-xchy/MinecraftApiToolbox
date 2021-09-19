@@ -6,7 +6,7 @@ import urllib
 from hashlib import md5
 import random
 import requests
-
+import base64coding
 
 def downloadskin(id):
     download_result = {
@@ -28,7 +28,7 @@ def downloadskin(id):
         BASE64_JSON = hjson[0]['value']
         #由于MOJANG的存储特性，在第二份JSON文件中含有被BASE64编码的另一份JSON文件，需要进行BASE64解码
         #第三次JSON解析
-        hjson = json.loads(''.join(str(base.b64decode(BASE64_JSON).decode())))
+        hjson = json.loads(''.join(str(base64coding.decode(BASE64_JSON))))
         skin_url = hjson['textures']['SKIN']['url']
         #下载用代码
         path ="./result/" + id + ".png"

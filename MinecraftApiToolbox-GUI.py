@@ -11,13 +11,13 @@ import functions
 
 ###############################软件信息信息初始化#############################################
 about_creater = {
-    "eng_name":"Zhi_Ling",
+    "en_name":"Zhi_Ling",
     "zh_name":"知凌",
     "BiliBili_ID":"知凌今天也在咕咕呐",
     "Github_ID":"ZhiLing-Bilibili"
     }
 about_software = {
-    "version":"2.4",
+    "version":"2.4 beta 21-9-a",
     "name_zh_cn":"Minecraft Api工具箱",
     "name_en_us":"Minecraft Api Toolbox"
     }
