@@ -1,12 +1,16 @@
 # MinecraftApiToolbox（Minecraft Api 工具箱）
-## 用于获取MOJANG Api中的数据和一些其他的功能 
+
+## 用于获取MOJANG Api中的数据和一些其他的功能
+
 ##### （会不会最后做成了Minecraft User's Helper [doge]）
 
-#### 获取JSON途径：
+#### 获取JSON途径
+
 api.mojang.com
 sessionserver.mojang.com
 
-#### 使用到的库文件：
+#### 使用到的库文件
+
 urllib
 json
 base64
@@ -16,18 +20,21 @@ os
 sys
 easygui
 
-#### 使用到的Api(除MOJANG Api)：
+#### 使用到的Api(除MOJANG Api)
+
 Hitokoto(一言)(v1.hitokoto.cn)
 百度翻译(api.fanyi.baidu.com)
 
 ### 使用时请解压，打开MinecraftApiToolbox.exe
 
 ###### ###############不推荐##################
+
 ###### MinecraftSkinDownloader则直接打开exe文件
 
-
 ### 说明
-#### 命令行版本语法：
+
+#### 命令行版本语法
+
     help---------------获取帮助信息
     downloadskin-------下载皮肤
     exit---------------退出
@@ -40,6 +47,7 @@ Hitokoto(一言)(v1.hitokoto.cn)
     hitokoto(或yiyan)--一言
 
 #### GUI版本目录结构
+
     Main
         downloadskin
         getuuid

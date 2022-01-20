@@ -29,4 +29,3 @@ def aboutsoftware(language):
             "GITHUB   @"+info["about_creater"]["Github_ID"]+"\n"+\
             ""
     return(output)
-print(aboutsoftware("zh_cn"))
