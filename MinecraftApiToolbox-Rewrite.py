@@ -32,3 +32,4 @@ except:
 
 print(softwareinfo.aboutsoftware(setting['language']))
 print("☆KIRA～")
+

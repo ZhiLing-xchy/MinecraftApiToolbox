@@ -1,6 +1,6 @@
 info = {
     "about_software":{
-        "version":"2.5 beta 21-9-a",
+        "version":"rever3 beta 22-1-a",
         "name_zh_cn":"Minecraft Api工具箱",
         "name_en_us":"Minecraft Api Toolbox",
         "about":"用于更方便的使用MOJANG 提供的Api"
@@ -26,6 +26,5 @@ def aboutsoftware(language):
             info["about_software"]["name_zh_cn"]+"\n"+\
             info["about_software"]["about"]+"\n"+\
             "BILIBILI @"+info["about_creater"]["Bilibili_ID"]+"\n"+\
-            "GITHUB   @"+info["about_creater"]["Github_ID"]+"\n"+\
-            ""
+            "GITHUB   @"+info["about_creater"]["Github_ID"]
     return(output)
