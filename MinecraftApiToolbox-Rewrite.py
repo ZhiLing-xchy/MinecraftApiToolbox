@@ -28,8 +28,27 @@ except:
     profilerewrite()
     with open("./config/setting.json",'r') as setting_load:
         setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
+
+## Language File Check ##
+try:
+    with open("./config/languages/forrewrite/"+setting['language']+".json",'r') as language_file:
+        language_display = json.load(language_file)
+except:
+    print("languagefileerror")
 ## MAIN START ##
 
 print(softwareinfo.aboutsoftware(setting['language']))
 print("☆KIRA～")
 
+
+
+
+
+execution = input(language_display['cmd']['main']['input'])
+
+if(execution == "downloadskin"):
+    print()
+elif(execution == "getuuid"):
+    print()
+else:
+    print(language_display['cmd']['main']['unknowcommand'])
