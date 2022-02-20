@@ -13,51 +13,64 @@ def downloadskin(id):
         "time":0,
         "url":"",
         "path":"",
-        "error":""
+        "error":"",
+        "error_detalle":""
     }
     try:
         hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/users/profiles/minecraft/' + id).read())#按照MOJANG api格式请求JSON
     except:
-        download_result["error"] = "getskin_error"
+        download_result["error"] = "downloadskin_error"
+        download_result["error_detalle"] = "getUUID_error"
         return(download_result)
     else:
-        url = 'https://sessionserver.mojang.com/session/minecraft/profile/' + hjson['id']
-        html = urllib.request.urlopen(url)
-        hjson = json.loads(html.read())
-        hjson = hjson['properties']
-        BASE64_JSON = hjson[0]['value']
-        #由于MOJANG的存储特性，在第二份JSON文件中含有被BASE64编码的另一份JSON文件，需要进行BASE64解码
-        #第三次JSON解析
-        hjson = json.loads(''.join(str(base64coding.decode(BASE64_JSON))))
-        skin_url = hjson['textures']['SKIN']['url']
-        #下载用代码
-        path ="./result/" + id + ".png"
+        try:
+            url = 'https://sessionserver.mojang.com/session/minecraft/profile/' + hjson['id']
+            html = urllib.request.urlopen(url)
+            hjson = json.loads(html.read())
+            hjson = hjson['properties']
+            BASE64_JSON = hjson[0]['value']
+            #由于MOJANG的存储特性，在第二份JSON文件中含有被BASE64编码的另一份JSON文件，需要进行BASE64解码
+            #第三次JSON解析
+            hjson = json.loads(''.join(str(base64coding.decode(BASE64_JSON))))
+            skin_url = hjson['textures']['SKIN']['url']
+        except:
+            download_result["error"] = "downloadskin_error"
+            download_result["error_detalle"] = "getskinurl_error"
+            return(download_result)
+        else:
+            try:
+                #下载用代码
+                path ="./result/" + id + ".png"
 
-        download_result["path"] = path
+                download_result["path"] = path
 
-        r=requests.get(skin_url)
-        urllib.request.urlopen(skin_url)
-        with open(path,"wb") as f:
-            f.write(r.content)
-        f.close()
+                r=requests.get(skin_url)
+                urllib.request.urlopen(skin_url)
+                with open(path,"wb") as f:
+                    f.write(r.content)
 
-        download_result["time"] = len(r.content)
-        download_result["url"] = url
-
-        return(download_result)
-
+                download_result["time"] = len(r.content)
+                download_result["url"] = url
+            except:
+                download_result["error"] = "downloadskin_error"
+                download_result["error_detalle"] = "download_error"
+                return(download_result)
+            else:
+                return(download_result)
 
 
 def getuuid(id):
     result = {
         "uuid":"",
         "error":""
+        "error_detalle"
     }
     try:
         hjson = json.loads(urllib.request.urlopen('https://api.mojang.com/users/profiles/minecraft/' + id).read())
         #按照MOJANG api格式请求JSON
     except:
-        result["error"] = "ID_to_UUID_error"
+        result["error"] = "getUUID_error"
+        result["error_detalle"] = "getUUID_error"
     else:
         result["uuid"] = hjson['id']
     return(result)

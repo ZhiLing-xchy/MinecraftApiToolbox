@@ -1,0 +1,17 @@
+{
+    "cmd": {
+        "main": {
+            "input": "MinecraftApi工具箱 >>>",
+            "unknowcommand": "错误的命令，输入”help“来获取帮助",
+            "error": "在运行时发生了错误，按下回车退出。>"
+        },
+        "downloadskin": {
+            "input": "请输入玩家国际版ID>>>>",
+            "error": "在下载时发生了错误，错误："
+        },
+        "help": ["帮助：",
+            "获取皮肤 ： downloadskin",
+            "获取UUID ： getuuid"
+        ]
+    }
+}

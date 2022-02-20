@@ -34,21 +34,49 @@ try:
     with open("./config/languages/forrewrite/"+setting['language']+".json",'r') as language_file:
         language_display = json.load(language_file)
 except:
-    print("languagefileerror")
+    print("Error While Loading Language File")
 ## MAIN START ##
 
 print(softwareinfo.aboutsoftware(setting['language']))
 print("☆KIRA～")
+def crash():
+    with open("./config/this/file/doesn't/excist/it's/use/to/crash/the/app",'r') as crash:
+        print(crash.read())
 
 
+try:
+    while True:
+        execution = input(language_display['cmd']['main']['input'])
 
+#########  DWONLOAD SKIN ##########
+        if(execution == "downloadskin"):
+            print()
+            result = functions.downloadskin(input(language_display['cmd']['downloadskin']['input']))
+            if(not result['error'] == ''):
+                print(language_display['cmd']['downloadskin']['error'],end='')
+                print(result['error_detalle'])
+            else:
+                print()
 
+########## getuuid ##########
+        elif(execution == "getuuid"):
+            print()
 
-execution = input(language_display['cmd']['main']['input'])
+########## CRASH ##########
+        elif(execution == "crash"):
+            crash()
 
-if(execution == "downloadskin"):
-    print()
-elif(execution == "getuuid"):
-    print()
-else:
-    print(language_display['cmd']['main']['unknowcommand'])
+########## HELP LIST ##########
+        elif(execution == "help"):
+            for i in range(0,int(len(language_display['cmd']['help']))):
+                print(language_display['cmd']['help'][i])
+
+########## EXIT SOFTWARE ##########
+        elif(execution == "exit"):
+            break
+
+########## UNKONW COMMAND ##########
+        else:
+            print(language_display['cmd']['main']['unknowcommand'])
+except:
+    input(language_display['cmd']['main']['error'])
