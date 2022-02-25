@@ -28,7 +28,6 @@ except:
     profilerewrite()
     with open("./config/setting.json",'r') as setting_load:
         setting = json.loads(''.join(str(''.join(json.load(setting_load)))))
-
 ## Language File Check ##
 try:
     with open("./config/languages/forrewrite/"+setting['language']+".json",'r') as language_file:
@@ -76,6 +75,8 @@ try:
             break
 
 ########## UNKONW COMMAND ##########
+        elif(execution == "colloregg"):
+            functions.colloregg()
         else:
             print(language_display['cmd']['main']['unknowcommand'])
 except:
